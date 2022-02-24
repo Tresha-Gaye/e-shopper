@@ -7,7 +7,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
-  User.findAll({
+  Product.findAll({
     order: [['created_at', 'DESC']],
     attributes: [
       'id',
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
         attributes: ['id'],
       },
       {
-        model: Tag,
+        model: ProductTag,
         attributes: ['id'],
       }
     ]
@@ -71,7 +71,6 @@ router.get('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
 });
 
 // create new product
@@ -150,6 +149,22 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No product found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
