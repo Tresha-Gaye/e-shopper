@@ -21,10 +21,9 @@ router.get('/', (req, res) => {
         model: Category,
         attributes: ['id'],
       },
-      // {
-      //   model: ProductTag,
-      //   attributes: ['tag_id'],
-      // }
+      {
+        model: Tag,
+      }
     ]
   })
   .then(dbUserData => res.json(dbUserData))
@@ -52,11 +51,11 @@ router.get('/:id', (req, res) => {
     include: [
         {
           model: Category,
-          attributes: ['id'],
+          // attributes: ['id'],
         },
         {
           model: Tag,
-          attributes: ['id'],
+          // attributes: ['id'],
         }
       ]
   })

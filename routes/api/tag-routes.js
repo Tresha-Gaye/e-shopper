@@ -14,12 +14,7 @@ router.get('/', (req, res) => {
     include: [
     // include its associated Product data
   {
-        model: ProductTag,
-        attributes: ['id', 'product_id'],
-        // include: {
-        //   model: Category,
-        //   attributes: ['id']
-        //   }
+        model: Product
       }
     ]
   })
@@ -42,21 +37,14 @@ router.get('/:id', (req, res) => {
     ],
     include: [
     // include its associated Product data
-  {
-    model: ProductTag,
-        attributes: ['id', 'product_id'],   
-    // model: Product,
-    //     attributes: ['id', 'product_name', 'price', 'stock'],
-    //     include: {
-    //       model: Category,
-    //       attributes: ['id']
-    //       }
-      }
+    {
+    model: Product   
+    }
     ]
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No tag found with this id' });
         return;
       }
       res.json(dbPostData);
@@ -69,11 +57,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-      // expects {tag_name: "1", product_id: "1", category_name: "bags"}
+      // expects {tag_name: "blackberry", product_id: "1", category_name: "bags"}
       Tag.create({
         tag_name: req.body.tag_name,
-        product_id: req.body.product_id,
-        category_name: req.body.category_name
+        // product_id: req.body.product_id,
+        // category_name: req.body.category_name
       })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -95,7 +83,7 @@ router.put('/:id', (req, res) => {
     })
       .then(dbUserData => {
         if (!dbUserData[0]) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: 'No tag found with this id' });
           return;
         }
         res.json(dbUserData);
