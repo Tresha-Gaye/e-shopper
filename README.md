@@ -5,8 +5,6 @@
 This application is the back-end for an e-commerce site, e-shopper, that uses a working Express.js API and configures it to use Sequelize to interact with MySQL database.
 
 You may view the the walkthru video that demonstrates the application's functionality by [clicking this link](https://drive.google.com/file/d/1JtXdQnx_GbzDKqfqK7n_W_6nA23d_uLi/view).
-Gitub warns tha this file is too large (79.67MB), so if it fails to load from the link, above, a copy is saved [here](./assets/images/Walkthu_ Feb 26, 2022 8_21 PM.webm)
-
 
 ## Technologies
 - MySQL2 and Sequelize packages used to connect to the database
