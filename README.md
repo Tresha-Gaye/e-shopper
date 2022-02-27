@@ -2,22 +2,26 @@
 
 ## Description
 
-This application is the back-end for an e-commerce site, e-shopper, that uses a working Express.js API and configures it to use Sequelize to interact with MySQL database
+This application is the back-end for an e-commerce site, e-shopper, that uses a working Express.js API and configures it to use Sequelize to interact with MySQL database.
 
 You may view the the walkthru video that demonstrates the application's functionality by [clicking this link](https://drive.google.com/file/d/1JtXdQnx_GbzDKqfqK7n_W_6nA23d_uLi/view).
+Gitub warns tha this file is too large (79.67MB), so if it fails to load from the link, above, a copy is saved [here](./assets/images/Walkthu_ Feb 26, 2022 8_21 PM.webm)
 
-**Technologies**
+
+## Technologies
 - MySQL2 and Sequelize packages used to connect to the database
 - dotenv package used for environment variables to store sensitive data
 
-**Criteria**
+## Criteria
 
-*User Story*
+***User Story**
+
 AS A manager at an internet retail company
 I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies
 
-*Acceptance Criteria*
+**Acceptance Criteria**
+
 GIVEN a functional Express.js API
 
 WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
